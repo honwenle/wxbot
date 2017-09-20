@@ -6,7 +6,7 @@ import random
 bot = Bot(cache_path = True)
 noclip = bot.friends().search('微杏')[0]
 fuli = bot.groups().search('福利')[0]
-@bot.register([noclip,fuli], TEXT)
+@bot.register()
 def recive_group_message(msg):
     print(msg.chat.name + ': ' + msg.text)
     if msg.text == '福利':
@@ -22,4 +22,8 @@ def recive_group_message(msg):
             os.chdir('../../')
         except Exception:
             print(Exception.message)
+@bot.register(msg_types=PICTURE)
+def recive_pic_message(msg):
+    print(msg)
+    msg.get_file('pics/'+msg.file_name)
 embed()
