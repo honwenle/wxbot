@@ -15,7 +15,7 @@ def get_pic(url):
     page_R = (r'<span>(..)</span>')
     max_page = re.findall(page_R, q)[0]
     # title是网页标题，可能含有特殊字符，需过滤
-    title = re.sub(u'[\/:*?">|< 满]+', "#", title)
+    # title = re.sub(u'[\/:*?">|< 满]+', "#", title)
     # title = re.sub(r'[.]+',"？",title)
 
     return (title, max_page)
